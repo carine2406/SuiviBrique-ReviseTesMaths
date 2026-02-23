@@ -511,14 +511,14 @@ export default function TeacherDashboard() {
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-md">
                     <div className="bg-slate-900 w-full max-w-5xl max-h-[90vh] overflow-hidden rounded-[3rem] border border-slate-800 shadow-2xl flex flex-col animate-in slide-in-from-bottom-5 duration-300">
                         {/* Header Modal */}
-                        <div className="p-8 sm:p-10 border-b border-slate-800 bg-slate-900/50 flex justify-between items-center">
-                            <div className="flex items-center gap-6">
-                                <div className="w-16 h-16 rounded-[1.5rem] bg-indigo-600 flex items-center justify-center text-2xl font-black text-white shadow-lg shadow-indigo-600/20">
+                        <div className="p-6 sm:p-10 border-b border-slate-800 bg-slate-900/50 flex justify-between items-center">
+                            <div className="flex items-center gap-4 sm:gap-6">
+                                <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-[1.5rem] bg-indigo-600 flex items-center justify-center text-xl sm:text-2xl font-black text-white shadow-lg shadow-indigo-600/20">
                                     {selectedEleve.nom?.[0]}
                                 </div>
                                 <div>
-                                    <h2 className="text-3xl font-black text-white">{selectedEleve.prenom} {selectedEleve.nom}</h2>
-                                    <div className="flex items-center gap-2 text-slate-400 font-bold uppercase tracking-widest text-[10px] mt-1">
+                                    <h2 className="text-xl sm:text-3xl font-black text-white">{selectedEleve.prenom} {selectedEleve.nom}</h2>
+                                    <div className="flex items-center gap-2 text-slate-400 font-bold uppercase tracking-widest text-[9px] sm:text-[10px] mt-1">
                                         <Users className="w-3 h-3" />
                                         <span>Classe : {selectedEleve.classes?.nom}</span>
                                     </div>
@@ -533,21 +533,22 @@ export default function TeacherDashboard() {
                         </div>
 
                         {/* Content Modal */}
-                        <div className="flex-1 overflow-y-auto p-8 sm:p-10 space-y-10 custom-scrollbar">
+                        <div className="flex-1 overflow-y-auto p-6 sm:p-10 space-y-8 sm:space-y-10 custom-scrollbar">
                             {loadingDetails ? (
                                 <div className="flex flex-col items-center justify-center py-20 gap-4">
                                     <Loader2 className="w-12 h-12 text-indigo-500 animate-spin" />
                                     <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Chargement des données...</p>
                                 </div>
                             ) : (
-                                <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+                                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
                                     {/* Section Notes */}
-                                    <div className="lg:col-span-2 space-y-6">
+                                    <div className="lg:col-span-7 space-y-6">
                                         <div className="flex items-center justify-between">
                                             <h3 className="text-xl font-black text-white flex items-center gap-3">
                                                 <div className="w-1.5 h-6 bg-indigo-500 rounded-full"></div>
                                                 Résultats
                                             </h3>
+                                            {/*Section pour changer de trimestre */}
                                             <div className="flex gap-2 p-1 bg-slate-950 rounded-xl border border-slate-800">
                                                 {['T1', 'T2', 'T3'].map((tab) => (
                                                     <button
@@ -565,7 +566,7 @@ export default function TeacherDashboard() {
                                         </div>
 
                                         {eleveNotes.find(n => n.trimestre === activeEleveTab) ? (
-                                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                                            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
                                                 {[
                                                     { label: 'Moyenne', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.moyenne, icon: '📊' },
                                                     { label: 'QCM Flash', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.qcm, icon: '⚡' },
@@ -578,12 +579,12 @@ export default function TeacherDashboard() {
                                                     { label: 'Bac Blanc', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.bb, icon: '🎓' },
                                                     { label: 'Moy DST', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.moy_dst, icon: '🏆' },
                                                 ].map((row, i) => (
-                                                    <div key={i} className="bg-slate-950/50 p-5 rounded-[1.5rem] border border-slate-800 shadow-sm">
+                                                    <div key={i} className="bg-slate-950/50 p-5 rounded-[1.5rem] border border-slate-800 shadow-sm flex flex-col justify-between min-h-[110px]">
                                                         <div className="flex items-center justify-between mb-3">
                                                             <span className="text-xl">{row.icon}</span>
                                                             <span className="text-[9px] font-black text-slate-600 uppercase tracking-widest">{row.label}</span>
                                                         </div>
-                                                        <p className="text-xl font-black text-white">
+                                                        <p className="text-xl text-right font-black text-white">
                                                             {row.value ?? <span className="text-slate-700">--</span>}
                                                         </p>
                                                     </div>
@@ -598,12 +599,12 @@ export default function TeacherDashboard() {
                                     </div>
 
                                     {/* Section Planning */}
-                                    <div className="space-y-6 h-fit">
+                                    <div className="lg:col-span-5 space-y-6 h-fit">
                                         <h3 className="text-xl font-black text-white flex items-center gap-3">
                                             <div className="w-1.5 h-6 bg-amber-500 rounded-full"></div>
                                             Planning
                                         </h3>
-                                        <div className="bg-slate-950/50 rounded-[2rem] border border-slate-800 overflow-hidden flex flex-col h-fit">
+                                        <div className="bg-slate-950/50 rounded-[2rem] border border-slate-800 overflow-hidden flex flex-col">
                                             <div className="p-4 bg-slate-800/50 border-b border-slate-800">
                                                 <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest text-center">Planning Révision IB</p>
                                             </div>
@@ -626,7 +627,6 @@ export default function TeacherDashboard() {
                                                                 title: 'Proba',
                                                                 color: 'text-amber-400',
                                                                 items: [
-                                                                    { key: 'den', label: 'i' },
                                                                     { key: 'cond', label: 'ib1' },
                                                                     { key: 'v', label: 'ib18' },
                                                                     { key: 'va', label: 'ib22' }
@@ -664,14 +664,14 @@ export default function TeacherDashboard() {
                                                                 <h4 className={`text-[10px] font-black uppercase tracking-[0.2em] ${group.color} opacity-80 px-1`}>
                                                                     {group.title}
                                                                 </h4>
-                                                                <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4">
+                                                                <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3">
                                                                     {group.items.map((item) => {
                                                                         const value = elevePlanning[0]?.[item.key];
                                                                         return (
-                                                                            <div key={item.key} className="bg-slate-900/50 p-3 rounded-xl border border-slate-800/50 flex flex-col gap-1 group hover:border-slate-700 transition-colors">
-                                                                                <p className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-slate-400 transition-colors">{item.label}</p>
-                                                                                <p className="text-xs font-bold text-slate-200">
-                                                                                    {value || <span className="text-slate-700">à valider</span>}
+                                                                            <div key={item.key} className="bg-slate-900/50 p-3 rounded-xl border border-slate-800/50 flex flex-col justify-center gap-1 group hover:border-slate-700 transition-colors">
+                                                                                <p className="text-[10px] text-center font-bold text-slate-500 uppercase tracking-widest group-hover:text-slate-400 transition-colors">{item.label}</p>
+                                                                                <p className="text-xs text-center font-bold text-slate-200">
+                                                                                    {value || <span className="text-rose-500 font-medium italic text-[10px]">à valider</span>}
                                                                                 </p>
                                                                             </div>
                                                                         );
