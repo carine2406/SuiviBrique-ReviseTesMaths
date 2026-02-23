@@ -569,15 +569,15 @@ export default function TeacherDashboard() {
                                             <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
                                                 {[
                                                     { label: 'Moyenne', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.moyenne, icon: '📊' },
+                                                    { label: 'Moy DST', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.moy_dst, icon: '🏆' },
                                                     { label: 'QCM Flash', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.qcm, icon: '⚡' },
                                                     { label: 'Régularité', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.regularite, icon: '📅' },
+                                                    { label: 'DST', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.dst, icon: '📝' },
+                                                    { label: 'Bac Blanc', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.bb, icon: '🎓' },
+                                                    { label: 'Apprentissage', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.apprentissage, icon: '💡' },
                                                     { label: 'Brique IB', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.brique_ib, icon: '🧱' },
                                                     { label: 'Brique +', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.brique_plus, icon: '➕' },
                                                     { label: 'Total Briques', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.total_briques, icon: '🧱' },
-                                                    { label: 'Apprentissage', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.apprentissage, icon: '💡' },
-                                                    { label: 'DST', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.dst, icon: '📝' },
-                                                    { label: 'Bac Blanc', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.bb, icon: '🎓' },
-                                                    { label: 'Moy DST', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.moy_dst, icon: '🏆' },
                                                 ].map((row, i) => (
                                                     <div key={i} className="bg-slate-950/50 p-5 rounded-[1.5rem] border border-slate-800 shadow-sm flex flex-col justify-between min-h-[110px]">
                                                         <div className="flex items-center justify-between mb-3">
