@@ -15,7 +15,8 @@ import {
     Settings,
     Table,
     X,
-    Power
+    Power,
+    Check
 } from 'lucide-react'
 
 export default function TeacherDashboard() {
@@ -619,47 +620,47 @@ export default function TeacherDashboard() {
                                                                 title: 'Suites',
                                                                 color: 'text-emerald-400',
                                                                 items: [
-                                                                    { key: 'rec', label: 'ib2' },
-                                                                    { key: 'sg', label: 'b5' },
-                                                                    { key: 'cv', label: 'ib6' },
-                                                                    { key: 'python', label: 'ib7' },
-                                                                    { key: 'lim', label: 'ib7bis' }
+                                                                    { key: 'récurrence', label: 'ib2' },
+                                                                    { key: 'Suite Géo', label: 'b5' },
+                                                                    { key: 'convergence', label: 'ib6' },
+                                                                    { key: 'Python', label: 'ib7' },
+                                                                    { key: 'Limites', label: 'ib7bis' }
                                                                 ]
                                                             },
                                                             {
                                                                 title: 'Proba',
                                                                 color: 'text-amber-400',
                                                                 items: [
-                                                                    { key: 'cond', label: 'ib1' },
-                                                                    { key: 'v', label: 'ib18' },
-                                                                    { key: 'va', label: 'ib22' }
+                                                                    { key: 'Proba cond', label: 'ib1' },
+                                                                    { key: 'Biniomiale', label: 'ib18' },
+                                                                    { key: 'VA', label: 'ib22' }
                                                                 ]
                                                             },
                                                             {
                                                                 title: 'Fonction',
                                                                 color: 'text-indigo-400',
                                                                 items: [
-                                                                    { key: 'deriv', label: 'ib3' },
+                                                                    { key: 'dériver', label: 'ib3' },
                                                                     { key: 'signe', label: 'ib4' },
-                                                                    { key: 'graph', label: 'ib8' },
-                                                                    { key: 'conv', label: 'ib9' },
-                                                                    { key: 'lim_fn', label: 'ib12' },
-                                                                    { key: 'co', label: 'ib13' },
-                                                                    { key: 'trigo', label: 'ib15' },
-                                                                    { key: 'integr', label: 'ib19' },
+                                                                    { key: 'graphique', label: 'ib8' },
+                                                                    { key: 'convexite', label: 'ib9' },
+                                                                    { key: 'limites', label: 'ib12' },
+                                                                    { key: 'continuité', label: 'ib13' },
+                                                                    { key: 'Fns trigos', label: 'ib15' },
+                                                                    { key: 'calcul d\'intégrales', label: 'ib19' },
                                                                     { key: 'aire', label: 'ib20' },
-                                                                    { key: 'int_plus', label: 'ib21' },
-                                                                    { key: 'ed', label: 'ib23' }
+                                                                    { key: 'inégalités', label: 'ib21' },
+                                                                    { key: 'equa Diff', label: 'ib23' }
                                                                 ]
                                                             },
                                                             {
                                                                 title: 'Espace',
                                                                 color: 'text-orange-500',
                                                                 items: [
-                                                                    { key: 'vect', label: 'ib10' },
-                                                                    { key: 'dte', label: 'ib11' },
-                                                                    { key: 'plan', label: 'ib16' },
-                                                                    { key: 'bino', label: 'ib17' }
+                                                                    { key: 'vecteurs', label: 'ib10' },
+                                                                    { key: 'droite', label: 'ib11' },
+                                                                    { key: 'Equation Plan', label: 'ib16' },
+                                                                    { key: 'volume', label: 'ib17' }
                                                                 ]
                                                             }
                                                         ].map((group) => (
@@ -672,9 +673,9 @@ export default function TeacherDashboard() {
                                                                         const value = elevePlanning[0]?.[item.key];
                                                                         return (
                                                                             <div key={item.key} className="bg-slate-900/50 p-3 rounded-xl border border-slate-800/50 flex flex-col justify-center gap-1 group hover:border-slate-700 transition-colors">
-                                                                                <p className="text-[10px] text-center font-bold text-slate-500 uppercase tracking-widest group-hover:text-slate-400 transition-colors">{item.label}</p>
+                                                                                <p className="text-[10px] text-center font-bold text-slate-500 uppercase tracking-widest group-hover:text-slate-400 transition-colors">{item.key}</p>
                                                                                 <p className="text-xs text-center font-bold text-slate-200">
-                                                                                    {value || <span className="text-rose-500 font-medium italic text-[10px]">à valider</span>}
+                                                                                   {value &&  <Check className="w-3 h-3 text-green-500 mx-auto" /> || <span className="text-rose-500 font-medium italic text-[10px]">à valider</span>}
                                                                                 </p>
                                                                             </div>
                                                                         );
