@@ -160,7 +160,7 @@ export default function Dashboard() {
                   <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Analyse des données...</p>
                 </div>
               ) : currentNotes ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                   {[
                     { label: 'Moyenne', value: currentNotes.moyenne, icon: '📊' },
                     { label: 'QCM', value: currentNotes.qcm, icon: '⚡' },
@@ -173,7 +173,7 @@ export default function Dashboard() {
                     { label: 'Brique +', value: currentNotes.brique_plus, icon: '➕' },
                     { label: 'Total Briques', value: currentNotes.total_briques, icon: '🧱' },
                   ].map((row, i) => (
-                    <div key={i} className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-md transition-shadow group flex flex-col justify-between min-h-[120px]">
+                    <div key={i} className="bg-white p-4 sm:p-6 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-md transition-shadow group flex flex-col justify-between min-h-[110px] sm:min-h-[120px]">
                       <div className="flex flex-col items-center mb-4">
                         <span className="text-2xl mb-2">{row.icon}</span>
                         <div className="h-1 w-6 bg-slate-100 rounded-full group-hover:bg-indigo-100 transition-colors"></div>

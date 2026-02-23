@@ -568,7 +568,7 @@ export default function TeacherDashboard() {
                                         </div>
 
                                         {eleveNotes.find(n => n.trimestre === activeEleveTab) ? (
-                                            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
+                                            <div className="grid grid-cols-2 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4">
                                                 {[
                                                     { label: 'Moyenne', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.moyenne, icon: '📊' },
                                                     { label: 'Moy DST', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.moy_dst, icon: '🏆' },
@@ -581,7 +581,7 @@ export default function TeacherDashboard() {
                                                     { label: 'Brique +', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.brique_plus, icon: '➕' },
                                                     { label: 'Total Briques', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.total_briques, icon: '🧱' },
                                                 ].map((row, i) => (
-                                                    <div key={i} className="bg-slate-950/50 p-5 rounded-[1.5rem] border border-slate-800 shadow-sm flex flex-col justify-between min-h-[110px]">
+                                                    <div key={i} className="bg-slate-950/50 p-3 sm:p-5 rounded-[1.5rem] border border-slate-800 shadow-sm flex flex-col justify-between min-h-[100px] sm:min-h-[110px]">
                                                         <div className="flex flex-col items-center mb-3">
                                                             <span className="text-xl mb-1">{row.icon}</span>
                                                             <div className="h-1 w-6 bg-slate-800 rounded-full"></div>
