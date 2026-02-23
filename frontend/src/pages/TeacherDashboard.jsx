@@ -13,7 +13,9 @@ import {
     BookOpen,
     Trash2,
     Settings,
-    Table
+    Table,
+    X,
+    Power
 } from 'lucide-react'
 
 export default function TeacherDashboard() {
@@ -253,7 +255,7 @@ export default function TeacherDashboard() {
                                 onClick={handleLogout}
                                 className="p-3 text-slate-400 hover:text-white hover:bg-slate-800 rounded-xl transition-all"
                             >
-                                <LogOut className="w-6 h-6" />
+                                <Power className="w-6 h-6" />
                             </button>
                         </div>
                     </div>
@@ -528,7 +530,7 @@ export default function TeacherDashboard() {
                                 onClick={() => setShowDetailModal(false)}
                                 className="w-12 h-12 flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white rounded-2xl transition-all"
                             >
-                                <LogOut className="w-6 h-6 rotate-180" />
+                                <X className="w-6 h-6" />
                             </button>
                         </div>
 

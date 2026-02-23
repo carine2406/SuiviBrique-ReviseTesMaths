@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabaseClient'
-import { LogOut, GraduationCap, Calendar, ChevronRight, Loader2 } from 'lucide-react'
+import { Power, GraduationCap, Calendar, ChevronRight, Loader2 } from 'lucide-react'
 
 export default function Dashboard() {
   const navigate = useNavigate()
@@ -91,7 +91,7 @@ export default function Dashboard() {
               onClick={handleLogout}
               className="flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-slate-600 hover:text-red-600 hover:bg-red-50 rounded-2xl transition-all border border-transparent hover:border-red-100"
             >
-              <LogOut size={18} />
+              <Power size={18} />
               <span className="hidden sm:inline">Déconnexion</span>
             </button>
           </div>
