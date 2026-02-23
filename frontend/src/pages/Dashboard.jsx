@@ -201,7 +201,7 @@ export default function Dashboard() {
 
               <div className="bg-white rounded-[2rem] border border-slate-100 shadow-sm overflow-hidden min-h-[400px]">
                 <div className="p-6 bg-slate-50 border-b border-slate-100">
-                  <p className="text-xs font-black text-slate-500 uppercase tracking-widest">Suivi des compétences</p>
+                  <p className="text-xs font-black text-slate-500 uppercase tracking-widest text-center">Planning Révision IB</p>
                 </div>
 
                 <div className="divide-y divide-slate-50">
@@ -220,17 +220,16 @@ export default function Dashboard() {
                           ]
                         },
                         {
-                          title: 'Probabilités',
+                          title: 'Proba',
                           color: 'text-amber-500',
                           items: [
-                            { key: 'den', label: 'i' },
                             { key: 'cond', label: 'ib1' },
                             { key: 'v', label: 'ib18' },
                             { key: 'va', label: 'ib22' }
                           ]
                         },
                         {
-                          title: 'Fonctions',
+                          title: 'Fonction',
                           color: 'text-indigo-600',
                           items: [
                             { key: 'deriv', label: 'ib3' },
@@ -247,8 +246,8 @@ export default function Dashboard() {
                           ]
                         },
                         {
-                          title: 'Géométrie & Autres',
-                          color: 'text-slate-400',
+                          title: 'Espace',
+                          color: 'text-orange-500',
                           items: [
                             { key: 'vect', label: 'ib10' },
                             { key: 'dte', label: 'ib11' },
@@ -261,14 +260,14 @@ export default function Dashboard() {
                           <h4 className={`text-[10px] font-black uppercase tracking-[0.2em] ${group.color} opacity-80 px-1`}>
                             {group.title}
                           </h4>
-                          <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-6">
+                          <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                             {group.items.map((item) => {
                               const value = planning[0]?.[item.key];
                               return (
-                                <div key={item.key} className="flex flex-col gap-1.5 group">
-                                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] group-hover:text-indigo-400 transition-colors">{item.label}</p>
-                                  <p className="text-sm font-bold text-slate-700 group-hover:text-indigo-600 transition-colors">
-                                    {value || <span className="text-slate-200">--</span>}
+                                <div key={item.key} className="bg-slate-50/50 p-3 rounded-xl border border-slate-100 flex flex-col justify-center gap-1 group hover:border-indigo-100 transition-colors">
+                                  <p className="text-[10px] text-center font-bold text-slate-400 uppercase tracking-widest group-hover:text-indigo-500 transition-colors">{item.label}</p>
+                                  <p className="text-sm text-center font-bold text-slate-700">
+                                    {value || <span className="text-rose-500 font-medium italic text-[10px]">à valider</span>}
                                   </p>
                                 </div>
                               );
@@ -280,7 +279,7 @@ export default function Dashboard() {
                   ) : (
                     <div className="p-10 text-center">
                       <Calendar className="w-10 h-10 text-slate-200 mx-auto mb-3" />
-                      <p className="text-xs font-bold text-slate-400 uppercase tracking-widest leading-loose">
+                      <p className="text-xs font-bold text-slate-400 uppercase tracking-widest leading-loose text-center">
                         Aucun planning <br /> pour le moment
                       </p>
                     </div>
