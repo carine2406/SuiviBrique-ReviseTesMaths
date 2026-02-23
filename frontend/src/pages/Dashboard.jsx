@@ -102,11 +102,11 @@ export default function Dashboard() {
         {/* Hero Section */}
         <div className="relative overflow-hidden bg-indigo-600 rounded-[2.5rem] p-8 sm:p-12 text-white shadow-2xl shadow-indigo-200">
           <div className="relative z-10">
-            <h1 className="text-3xl sm:text-5xl font-black mb-4 leading-tight">
+            <h1 className="text-2xl sm:text-5xl font-black mb-4 leading-tight">
               Ravi de vous revoir, <br />
               <span className="text-indigo-200">{user.prenom} !</span>
             </h1>
-            <p className="text-indigo-100 text-lg font-medium opacity-90 max-w-xl">
+            <p className="text-indigo-100 text-md font-medium opacity-90 max-w-xl">
               Retrouvez ici l'ensemble de vos performances académiques et votre organisation hebdomadaire.
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function Dashboard() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover-lift">
             <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Trimestre Actuel</p>
-            <p className="text-2xl font-black text-slate-900">{activeTab}</p>
+            <p className="text-xl font-black text-slate-900">{activeTab}</p>
           </div>
           <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-100 hover-lift">
             <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-2">Moyenne Générale</p>
@@ -144,13 +144,13 @@ export default function Dashboard() {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
             {/* Notes Section (2/3) */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-8 space-y-6">
               <div className="flex items-center justify-between px-2">
                 <h2 className="text-2xl font-black text-slate-900 flex items-center gap-3">
                   <div className="w-2 h-8 bg-indigo-600 rounded-full"></div>
-                  Résultats détaillés
+                  Résultats
                 </h2>
               </div>
 
@@ -160,26 +160,26 @@ export default function Dashboard() {
                   <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">Analyse des données...</p>
                 </div>
               ) : currentNotes ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                   {[
-                    { label: 'Moyenne Organisée', value: currentNotes.moyenne, icon: '📊' },
-                    { label: 'QCM Flash', value: currentNotes.qcm, icon: '⚡' },
+                    { label: 'Moyenne', value: currentNotes.moyenne, icon: '📊' },
+                    { label: 'QCM', value: currentNotes.qcm, icon: '⚡' },
+                    { label: 'Moyenne DST', value: currentNotes.moy_dst, icon: '🏆' },
                     { label: 'Régularité', value: currentNotes.regularite, icon: '📅' },
+                    { label: 'DST', value: currentNotes.dst, icon: '📝' },
+                    { label: 'Bac Blanc', value: currentNotes.bb, icon: '🎓' },
+                    { label: 'Apprentissage', value: currentNotes.apprentissage, icon: '💡' },
                     { label: 'Brique IB', value: currentNotes.brique_ib, icon: '🧱' },
                     { label: 'Brique +', value: currentNotes.brique_plus, icon: '➕' },
                     { label: 'Total Briques', value: currentNotes.total_briques, icon: '🧱' },
-                    { label: 'Apprentissage', value: currentNotes.apprentissage, icon: '💡' },
-                    { label: 'DST', value: currentNotes.dst, icon: '📝' },
-                    { label: 'Bac Blanc', value: currentNotes.bb, icon: '🎓' },
-                    { label: 'Moyenne DST', value: currentNotes.moy_dst, icon: '🏆' },
                   ].map((row, i) => (
-                    <div key={i} className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-md transition-shadow group">
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="text-2xl">{row.icon}</span>
-                        <div className="h-2 w-8 bg-slate-100 rounded-full group-hover:bg-indigo-100 transition-colors"></div>
+                    <div key={i} className="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-md transition-shadow group flex flex-col justify-between min-h-[120px]">
+                      <div className="flex flex-col items-center mb-4">
+                        <span className="text-2xl mb-2">{row.icon}</span>
+                        <div className="h-1 w-6 bg-slate-100 rounded-full group-hover:bg-indigo-100 transition-colors"></div>
                       </div>
-                      <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">{row.label}</p>
-                      <p className="text-2xl font-black text-slate-900">
+                      <p className="text-[10px] text-center font-bold text-slate-400 uppercase tracking-widest mb-1">{row.label}</p>
+                      <p className="text-xl font-black text-slate-900 text-center">
                         {row.value ?? <span className="text-slate-300">--</span>}
                       </p>
                     </div>
@@ -193,7 +193,7 @@ export default function Dashboard() {
             </div>
 
             {/* Planning Section (1/3) */}
-            <div className="space-y-6">
+            <div className="lg:col-span-4 space-y-6">
               <h2 className="text-2xl font-black text-slate-900 flex items-center gap-3 px-2">
                 <div className="w-2 h-8 bg-indigo-400 rounded-full"></div>
                 Planning
@@ -261,7 +261,7 @@ export default function Dashboard() {
                           <h4 className={`text-[10px] font-black uppercase tracking-[0.2em] ${group.color} opacity-80 px-1`}>
                             {group.title}
                           </h4>
-                          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                          <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-6">
                             {group.items.map((item) => {
                               const value = planning[0]?.[item.key];
                               return (

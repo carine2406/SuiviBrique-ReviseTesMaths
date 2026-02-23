@@ -582,11 +582,12 @@ export default function TeacherDashboard() {
                                                     { label: 'Total Briques', value: eleveNotes.find(n => n.trimestre === activeEleveTab)?.total_briques, icon: '🧱' },
                                                 ].map((row, i) => (
                                                     <div key={i} className="bg-slate-950/50 p-5 rounded-[1.5rem] border border-slate-800 shadow-sm flex flex-col justify-between min-h-[110px]">
-                                                        <div className="flex items-center justify-between mb-3">
-                                                            <span className="text-xl">{row.icon}</span>
-                                                            <span className="text-[9px] font-black text-slate-600 uppercase tracking-widest">{row.label}</span>
+                                                        <div className="flex flex-col items-center mb-3">
+                                                            <span className="text-xl mb-1">{row.icon}</span>
+                                                            <div className="h-1 w-6 bg-slate-800 rounded-full"></div>
                                                         </div>
-                                                        <p className="text-xl text-right font-black text-white">
+                                                        <p className="text-center text-[9px] font-black text-slate-500 uppercase tracking-widest mb-1">{row.label}</p>
+                                                        <p className="text-xl text-center font-black text-white">
                                                             {row.value ?? <span className="text-slate-700">--</span>}
                                                         </p>
                                                     </div>
