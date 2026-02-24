@@ -189,6 +189,44 @@ export default function Dashboard() {
                       value: currentNotes.moyenne,
                       icon: "📊",
                     },
+                  ].map((row, i) => (
+                    <div
+                      key={i}
+                      className="bg-white p-4 sm:p-6 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-md transition-shadow group flex flex-col justify-between min-h-[110px] sm:min-h-[120px]"
+                    >
+                      <div className="flex flex-col items-center mb-4">
+                        <span className="text-2xl mb-2">{row.icon}</span>
+                        <div className="h-1 w-6 bg-slate-100 rounded-full group-hover:bg-indigo-100 transition-colors"></div>
+                      </div>
+                      <p className="text-[10px] text-center font-bold text-slate-400 uppercase tracking-widest mb-1">
+                        {row.label}
+                      </p>
+                      <p className="text-xl font-black text-slate-900 text-center">
+                        {row.value ?? (
+                          <span className="text-slate-300">--</span>
+                        )}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="bg-white rounded-[2rem] p-16 text-center border border-slate-100 border-dashed">
+                  <p className="text-slate-400 font-bold">
+                    Aucune donnée disponible pour cette période.
+                  </p>
+                </div>
+              )}
+
+              {loading ? (
+                <div className="bg-white rounded-[2rem] p-20 text-center border border-slate-100">
+                  <Loader2 className="w-10 h-10 animate-spin text-indigo-500 mx-auto mb-4" />
+                  <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">
+                    Analyse des données...
+                  </p>
+                </div>
+              ) : currentNotes ? (
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 gap-3 sm:gap-4">
+                  {[
                     { label: "QCM", value: currentNotes.qcm, icon: "⚡" },
 
                     {
