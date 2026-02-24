@@ -602,16 +602,16 @@ export default function TeacherDashboard() {
             {/* Content Modal */}
             <div className="flex-1 overflow-y-auto p-6 sm:p-10 space-y-8 sm:space-y-10 custom-scrollbar">
               {loadingDetails ? (
-                <div className="flex flex-col items-center justify-center py-20 gap-4">
+                <div className="flex flex-col items-center justify-center py-20 gap-">
                   <Loader2 className="w-12 h-12 text-indigo-500 animate-spin" />
                   <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">
                     Chargement des données...
                   </p>
                 </div>
               ) : (
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                   {/* Section Notes */}
-                  <div className="lg:col-span-7 space-y-6">
+                  <div className="lg:col-span-6 space-y-6">
                     <div className="flex items-center justify-between">
                       <h3 className="text-xl font-black text-white flex items-center gap-3">
                         <div className="w-1.5 h-6 bg-indigo-500 rounded-full"></div>
@@ -762,7 +762,7 @@ export default function TeacherDashboard() {
                   </div>
 
                   {/* Section Planning */}
-                  <div className="lg:col-span-5 space-y-6 h-fit">
+                  <div className="lg:col-span-6 space-y-6 h-fit">
                     <h3 className="text-xl font-black text-white flex items-center gap-3">
                       <div className="w-1.5 h-6 bg-amber-500 rounded-full"></div>
                       Planning
@@ -775,7 +775,7 @@ export default function TeacherDashboard() {
                       </div>
                       <div className="flex-1 overflow-y-auto divide-y divide-slate-800/50 custom-scrollbar">
                         {elevePlanning.length > 0 ? (
-                          <div className="p-6 space-y-8">
+                          <div className="p-3 space-y-8">
                             {[
                               {
                                 title: "Suites",
@@ -839,7 +839,7 @@ export default function TeacherDashboard() {
                                         key={item.key}
                                         className="bg-slate-900/50 p-3 rounded-xl border border-slate-800/50 flex flex-col justify-center gap-1 group hover:border-slate-700 transition-colors"
                                       >
-                                        <p className="text-[10px] text-center font-bold text-slate-500 uppercase tracking-widest group-hover:text-slate-400 transition-colors">
+                                        <p className="text-[10px] text-center wrap-break-word font-bold text-slate-500 uppercase tracking-widest group-hover:text-slate-400 transition-colors">
                                           {item.key}
                                         </p>
                                         <p className="text-xs text-center font-bold text-slate-200">
@@ -847,7 +847,7 @@ export default function TeacherDashboard() {
                                             <Check className="w-3 h-3 text-green-500 mx-auto" />
                                           )) || (
                                             <span className="text-rose-500 font-medium italic text-[10px]">
-                                              à valider
+                                              🔒
                                             </span>
                                           )}
                                         </p>

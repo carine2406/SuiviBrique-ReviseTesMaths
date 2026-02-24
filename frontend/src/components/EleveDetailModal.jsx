@@ -14,7 +14,7 @@ export default function EleveDetailModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-white rounded-2xl shadow-xl w-full max-w-2xl p-8 relative">
+      <div className="bg-white rounded-2xl shadow-xl w-full max-w-5xl p-8 relative">
         <button
           className="absolute top-4 right-4 text-gray-500 hover:text-red-500"
           onClick={onClose}
