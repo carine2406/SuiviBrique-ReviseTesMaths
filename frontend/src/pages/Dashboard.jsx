@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabaseClient";
+import brickImage from "../assets/brique.png";
 import {
   Power,
   GraduationCap,
@@ -243,19 +244,25 @@ export default function Dashboard() {
                       icon: "📈",
                     },
                     {
-                      label: "Total Briques",
-                      value: currentNotes.total_briques,
-                      icon: "🧱",
-                    },
-                    {
                       label: "Brique IB",
                       value: currentNotes.brique_ib,
-                      icon: "🧱",
+                      icon: (
+                        <img
+                          src={brickImage}
+                          alt="Brique IB"
+                          style={{ width: 50, height: 50 }}
+                        />
+                      ),
                     },
                     {
                       label: "Brique +",
                       value: currentNotes.brique_plus,
                       icon: "➕",
+                    },
+                    {
+                      label: "Total Briques",
+                      value: currentNotes.total_briques,
+                      icon: "🧱",
                     },
                   ].map((row, i) => (
                     <div
