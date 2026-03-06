@@ -295,18 +295,18 @@ export default function Dashboard() {
               )}
             </div>
 
-            {/* Planning Section (1/3) */}
+            
             {/* Planning Section */}
             <div className="lg:col-span-6 space-y-6">
-              <h2 className="text-2xl font-black text-slate-900 flex items-center gap-3 px-2">
+              <h2 className="text-2xl font-black text-white flex items-center gap-3 px-2">
                 <div className="w-2 h-8 bg-amber-500 rounded-full"></div>
                 Planning
               </h2>
 
-              <div className="bg-slate-100/50 border border-slate-800 rounded-[2rem] overflow-hidden min-h-[400px]">
+              <div className="bg-slate-900/50 border border-slate-800 rounded-[2rem] overflow-hidden min-h-[400px]">
                 <div className="p-6 bg-slate-900 border-b border-slate-800">
-                  <p className="text-xs font-black text-slate-100 uppercase tracking-widest text-center">
-                    Planning Révision IB
+                  <p className="text-xs font-black text-slate-200 uppercase tracking-widest text-center">
+                    Planning Révisions IB
                   </p>
                 </div>
 
@@ -323,35 +323,41 @@ export default function Dashboard() {
                               dbKey: "rec",
                               label: "ib2",
                               prevKey: null,
+                              nextKey: "cv",
+                            },
+                            
+                            {
+                              displayName: "convergence",
+                              dbKey: "cv",
+                              label: "ib6",
+                              prevKey: "rec",
+                              nextKey: "sg",
                             },
                             {
                               displayName: "Suite Géo",
                               dbKey: "sg",
                               label: "b5",
-                              prevKey: "rec",
-                            },
-                            {
-                              displayName: "convergence",
-                              dbKey: "cv",
-                              label: "ib6",
-                              prevKey: "sg",
+                              prevKey: "cv",
+                              nextKey: "python",
                             },
                             {
                               displayName: "Python",
                               dbKey: "python",
                               label: "ib7",
-                              prevKey: "cv",
+                              prevKey: "sg",
+                              nextKey: "lim",
                             },
                             {
                               displayName: "Limites",
                               dbKey: "lim",
                               label: "ib7bis",
                               prevKey: "python",
+                              nextKey: null,
                             },
                           ],
                         },
                         {
-                          title: "Proba",
+                          title: "Probabilités",
                           color: "text-amber-400",
                           items: [
                             {
@@ -359,23 +365,26 @@ export default function Dashboard() {
                               dbKey: "cond",
                               label: "ib1",
                               prevKey: null,
+                              nextKey: "bino",
                             },
                             {
                               displayName: "Biniomiale",
                               dbKey: "bino",
                               label: "ib18",
                               prevKey: "cond",
+                              nextKey: "va",
                             },
                             {
                               displayName: "VA",
                               dbKey: "va",
                               label: "ib22",
                               prevKey: "bino",
+                              nextKey: null,
                             },
                           ],
                         },
                         {
-                          title: "Fonction",
+                          title: "Fonctions",
                           color: "text-indigo-400",
                           items: [
                             {
@@ -383,66 +392,80 @@ export default function Dashboard() {
                               dbKey: "deriv",
                               label: "ib3",
                               prevKey: null,
+                              nextKey: "signe",
                             },
                             {
                               displayName: "signe",
                               dbKey: "signe",
                               label: "ib4",
                               prevKey: "deriv",
+                              nextKey: "conv",
                             },
-                            {
-                              displayName: "graphique",
-                              dbKey: "graph",
-                              label: "ib8",
-                              prevKey: "signe",
-                            },
+                            
                             {
                               displayName: "convexite",
                               dbKey: "conv",
                               label: "ib9",
-                              prevKey: "graph",
+                              prevKey: "signe",
+                              nextKey: "co",
                             },
-                            {
-                              displayName: "limites",
-                              dbKey: "lim_fn",
-                              label: "ib12",
-                              prevKey: "conv",
-                            },
+                            
                             {
                               displayName: "continuité",
                               dbKey: "co",
                               label: "ib13",
-                              prevKey: "lim_fn",
+                              prevKey: "conv",
+                              nextKey: "integr",
                             },
-                            {
-                              displayName: "Fns trigos",
-                              dbKey: "trigo",
-                              label: "ib15",
-                              prevKey: "co",
-                            },
+                            
                             {
                               displayName: "calcul d'intégrales",
                               dbKey: "integr",
                               label: "ib19",
-                              prevKey: "trigo",
+                              prevKey: "co",
+                              nextKey: "aire",
                             },
                             {
                               displayName: "aire",
                               dbKey: "aire",
                               label: "ib20",
                               prevKey: "integr",
+                              nextKey: "ed",
+                            },
+                            
+                            {
+                              displayName: "equa Diff",
+                              dbKey: "ed",
+                              label: "ib23",
+                              prevKey: "aire",
+                              nextKey: "graph",
+                            },
+                            {
+                              displayName: "graphique",
+                              dbKey: "graph",
+                              label: "ib8",
+                              prevKey: "ed",
+                              nextKey: "lim_fn",
+                            },
+                            {
+                              displayName: "limites",
+                              dbKey: "lim_fn",
+                              label: "ib12",
+                              prevKey: "graph",
+                              nextKey: "trigo",
+                            },
+                            {
+                              displayName: "Fns trigos",
+                              dbKey: "trigo",
+                              label: "ib15",
+                              prevKey: "lim_fn",
                             },
                             {
                               displayName: "inégalités",
                               dbKey: "int_plus",
                               label: "ib21",
-                              prevKey: "aire",
-                            },
-                            {
-                              displayName: "equa Diff",
-                              dbKey: "ed",
-                              label: "ib23",
-                              prevKey: "int_plus",
+                              prevKey: "trigo",
+                              nextKey: null,
                             },
                           ],
                         },
@@ -450,29 +473,34 @@ export default function Dashboard() {
                           title: "Espace",
                           color: "text-orange-500",
                           items: [
-                            {
-                              displayName: "vecteurs",
-                              dbKey: "vect",
-                              label: "ib10",
-                              prevKey: null,
-                            },
+                            
                             {
                               displayName: "droite",
                               dbKey: "dte",
                               label: "ib11",
-                              prevKey: "vect",
+                              prevKey: null,
+                              nextKey: "plan",
                             },
                             {
                               displayName: "Equation Plan",
                               dbKey: "plan",
                               label: "ib16",
                               prevKey: "dte",
+                              nextKey: "v",
                             },
                             {
                               displayName: "volume",
                               dbKey: "v",
                               label: "ib17",
                               prevKey: "plan",
+                              nextKey: "vect",
+                            },
+                            {
+                              displayName: "vecteurs",
+                              dbKey: "vect",
+                              label: "ib10",
+                              prevKey: "v",
+                              nextKey: null,
                             },
                           ],
                         },
@@ -491,7 +519,7 @@ export default function Dashboard() {
                               let display;
                               let statusColor = "";
 
-                              if (value && value !== "") {
+                              if (value !== "" && planning[0]?.[item.nextKey] !== "") {
                                 display = (
                                   <div className="flex items-center justify-center gap-1">
                                     <span className="text-green-400">
@@ -502,14 +530,11 @@ export default function Dashboard() {
                                 );
                                 statusColor =
                                   "border-green-500/30 bg-green-500/5";
-                              } else if (
-                                item.prevKey &&
-                                planning[0]?.[item.prevKey] &&
-                                planning[0]?.[item.prevKey] !== ""
+                              } else if (value !== "" && planning[0]?.[item.nextKey] == ""
                               ) {
                                 display = (
-                                  <span className="text-amber-500 font-medium italic text-[10px]">
-                                    à débloquer
+                                    <span className="text-amber-500 font-medium italic text-[10px]">
+                                    {value} à valider
                                   </span>
                                 );
                                 statusColor =
@@ -527,22 +552,22 @@ export default function Dashboard() {
                               return (
                                 <div
                                   key={item.dbKey}
-                                  className={`bg-white p-3 rounded-xl border transition-all flex flex-col justify-center gap-1 group hover:scale-105 duration-200 ${statusColor}`}
+                                  className={`bg-slate-900 p-3 rounded-xl border transition-all flex flex-col justify-center gap-1 group hover:scale-105 duration-200 ${statusColor}`}
                                 >
                                   <p className="text-[9px] wrap-break-word text-center font-bold text-slate-500 uppercase tracking-widest group-hover:text-indigo-400 transition-colors">
                                     {item.displayName}
                                   </p>
-                                  <p className="text-xs text-center font-bold text-slate-200">
+                                  <p className="text-xs text-center font-bold text-slate-100">
                                     {display}
                                   </p>
-                                  {item.prevKey && (
+                                {/**   {item.prevKey && (
                                     <p className="text-[8px] text-center text-slate-600 mt-1">
                                       prérequis:{" "}
                                       {group.items.find(
                                         (i) => i.dbKey === item.prevKey,
                                       )?.displayName || item.prevKey}
                                     </p>
-                                  )}
+                                  )} */}
                                 </div>
                               );
                             })}
@@ -568,7 +593,7 @@ export default function Dashboard() {
       {/* Footer */}
       <footer className="max-w-7xl mx-auto p-10 mt-10 text-center border-t border-slate-100">
         <p className="text-xs font-bold text-slate-400 uppercase tracking-[0.3em]">
-          BriquesSuivi &copy; 2026 - Tous droits réservés
+          Révise Tes Maths &copy; 2026 
         </p>
       </footer>
     </div>
